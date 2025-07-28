@@ -17,5 +17,4 @@ COPY . .
 RUN mkdir -p /app/Output
 
 # Entrypoint: process all PDFs in /app/input and save results to /app/output
-CMD ["python","1A.py", "file03.pdf "]
 CMD ["python" , "1B.py", "Input"]
