@@ -66,6 +66,7 @@ graph TD
 ## 🐳 Quick Start (Build & Run with Docker)
 
 To run the project completely offline inside Docker, simply run:
+```
 
 ```bash
 docker build --platform linux/amd64 -t mysolution:latest . \
@@ -75,3 +76,4 @@ docker build --platform linux/amd64 -t mysolution:latest . \
        -v $(pwd)/output:/app/output \
        --network none \
        mysolution:latest
+
