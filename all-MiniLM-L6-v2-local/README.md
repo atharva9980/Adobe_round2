@@ -73,6 +73,23 @@ graph TD
     J --> M[Format Final JSON Output];
     L --> M;
 
+### 🐳 Build & Run the Solution
+
+```bash
+# Build the Docker image
+docker build --platform linux/amd64 -t mysolution:latest .
+
+# Prepare input and output directories
+mkdir -p input output
+
+# Run the container (offline mode, no network)
+docker run --rm \
+  -v $(pwd)/input:/app/input \
+  -v $(pwd)/output:/app/output \
+  --network none \
+  mysolution:latest
+
+
 
 
 
