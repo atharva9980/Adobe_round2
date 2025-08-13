@@ -44,6 +44,8 @@ Uses the structured outline to deliver user-specific insights.
 
 ### Stage 2: Persona-Driven Intelligence
 
+### Stage 2: Persona-Driven Intelligence
+
 ```mermaid
 graph TD
     A[Input: PDFs, Persona, Job] --> B{Stage 1: Outline & Sectionize};
@@ -53,19 +55,23 @@ graph TD
     D --> F[Keyword Set];
 
     subgraph "Hybrid Scoring Engine"
-        C & E --> G[Semantic Score (Cosine Similarity)];
-        C & F --> H[Lexical Score (BM25)];
-        G & H --> I[Weighted Hybrid Score α*S + (1-α)*L];
+        C --> G[Semantic Score (Cosine Similarity)];
+        E --> G;
+        C --> H[Lexical Score (BM25)];
+        F --> H;
+        G --> I[Weighted Hybrid Score α*S + (1-α)*L];
+        H --> I;
     end
 
     I --> J[Top-Ranked Sections];
-
     subgraph "Sub-Section Analysis"
-        J & E --> K[Find most similar sentences];
-        K --> L[Generate Refined Summary];
+         J --> K[Find most similar sentences];
+         K --> L[Generate Refined Summary];
     end
-
-    J & L --> M[Format Final JSON Output];
+    J --> M[Format Final JSON Output];
+    L --> M;
+```mermaid
+---
 
 
 ```bash
@@ -76,6 +82,7 @@ docker build --platform linux/amd64 -t mysolution:latest . \
        -v $(pwd)/output:/app/output \
        --network none \
        mysolution:latest
+
 
 
 
