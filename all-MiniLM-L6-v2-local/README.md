@@ -53,21 +53,19 @@ graph TD
     D --> F[Keyword Set];
 
     subgraph "Hybrid Scoring Engine"
-        C --> G[Semantic Score (Cosine Similarity)];
-        E --> G;
-        C --> H[Lexical Score (BM25)];
-        F --> H;
-        G --> I[Weighted Hybrid Score α*S + (1-α)*L];
-        H --> I;
+        C & E --> G[Semantic Score (Cosine Similarity)];
+        C & F --> H[Lexical Score (BM25)];
+        G & H --> I[Weighted Hybrid Score α*S + (1-α)*L];
     end
 
     I --> J[Top-Ranked Sections];
+
     subgraph "Sub-Section Analysis"
-         J --> K[Find most similar sentences];
-         K --> L[Generate Refined Summary];
+        J & E --> K[Find most similar sentences];
+        K --> L[Generate Refined Summary];
     end
-    J --> M[Format Final JSON Output];
-    L --> M;
+
+    J & L --> M[Format Final JSON Output];
 
 
 ```bash
@@ -78,5 +76,6 @@ docker build --platform linux/amd64 -t mysolution:latest . \
        -v $(pwd)/output:/app/output \
        --network none \
        mysolution:latest
+
 
 
