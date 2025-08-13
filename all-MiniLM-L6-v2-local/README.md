@@ -73,6 +73,13 @@ graph TD
     J --> M[Format Final JSON Output];
     L --> M;
 
+```
+
+
+
+
+
+
 ### 🐳 Build & Run the Solution
 
 ```bash
@@ -88,6 +95,7 @@ docker run --rm \
   -v $(pwd)/output:/app/output \
   --network none \
   mysolution:latest
+
 
 
 
