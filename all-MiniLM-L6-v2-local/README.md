@@ -46,6 +46,8 @@ Uses the structured outline to deliver user-specific insights.
 
 ### Stage 2: Persona-Driven Intelligence
 
+### Stage 2: Persona-Driven Intelligence
+
 ```mermaid
 graph TD
     A[Input: PDFs, Persona, Job] --> B{Stage 1: Outline & Sectionize};
@@ -70,18 +72,11 @@ graph TD
     end
     J --> M[Format Final JSON Output];
     L --> M;
-```mermaid
----
 
 
-```bash
-docker build --platform linux/amd64 -t mysolution:latest . \
-  && mkdir -p input output \
-  && docker run --rm \
-       -v $(pwd)/input:/app/input \
-       -v $(pwd)/output:/app/output \
-       --network none \
-       mysolution:latest
+
+
+
 
 
 
