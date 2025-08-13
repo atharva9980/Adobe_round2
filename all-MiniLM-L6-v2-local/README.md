@@ -71,9 +71,9 @@ graph TD
          K --> L[Generate Refined Summary];
     end
     J --> M[Format Final JSON Output];
-    L --> M;
+    L --> M;```
 
-```
+
 
 
 
@@ -95,6 +95,7 @@ docker run --rm \
   -v $(pwd)/output:/app/output \
   --network none \
   mysolution:latest
+
 
 
 
